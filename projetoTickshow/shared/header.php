@@ -69,6 +69,7 @@
                         <li><a href="eventos.php">Eventos</a></li>
                         <li><a href="help.php">Central de Ajuda</a></li>
                         <li><a href="index.php">Login</a></li>
+                        <li><a href="cadastroEvento.php">Cadastrar Evento</a></li>
                         <li><a href="#"><span class="fa fa-cart-plus" style="font-size:28px"></span></a></li>
                     </ul>
                 </div>

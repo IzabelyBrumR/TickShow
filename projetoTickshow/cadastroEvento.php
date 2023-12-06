@@ -23,54 +23,27 @@
             <div class="col-md-4">
 
                 <div class="blocoLogin">
-                    <form method="post" action="controller/eventoController.php" class="formLogin">
-
-                        <?php
-                        if ($_REQUEST) {
-                            $cod = $_REQUEST['cod'];
-                            if ($cod == 'success') {
-                                echo '<div class="alert alert-success">';
-                                echo 'Registro inserido com sucesso';
-                                echo '</div>';
-                            } else if ($cod == 'error') {
-                                echo '<div class="alert alert-danger">';
-                                echo '<span>Erro:</spam>Ocorreu um erro';
-                                echo '</div>';
-                            } else if ($cod == 'edit') {
-                                require_once './controller/eventoController.php';
-
-                                $id = $_REQUEST['id'];
-                                $usrObject = loadById($id);
-                            }
-                        }
-                        ?>
-
+                    <form method="post" action="./controller/eventosController.php" class="formLogin">
 
                         <h1>Cadastrar Evento</h1>
                         <p>Preencha os campos abaixo com os dados do evento.</p>
                         
-                        <input type="hidden" name="id" value="">
+                        <input type="hidden" name="id" vvalue="<?php echo @(isset($eventosObject) ? $eventosObject->getId() : '') ?>">
 
                         <label for="nome">Nome do evento:</label>
-                        <input type="text" id="nome" value="" name="nome" required="" placeholder="Insira o nome">
+                        <input type="text" id="nome" name="nome" required="" placeholder="Insira o nome">
                        
-                        <label for="descricao">Descrição:</label>
-                        <input type="text" id="descricao" value="" name="descricao" required="" placeholder="Insira uma descrição do evento">
+                        <label for="valor">Valor do ingresso:</label>
+                        <input type="number" name="valor" required="" placeholder="Insira um valor">
                         
-                        <label for="loteUm">Valor do primeiro lote:</label>
-                        <input type="number" id="quant" value="" name="loteUm" required="" placeholder="Insira um valor">
-                        
-                        <label for="quant">Quantidade de lotes:</label>
-                        <input type="number" id="quant" value="" name="quant" required="" placeholder="Insira uma quantidade">
-                        
-                        <label for="add">Valor a ser adicionado por lote:</label>
-                        <input type="number" id="add" value="" name="add" required="" placeholder="Insira um valor">
+                        <label for="quant_ing">Quantidade de ingressos:</label>
+                        <input type="number" name="quant_ing" required="" placeholder="Insira uma quantidade">
 
                         <label for="url">URL da imagem escolhida:</label>
-                        <input type="text" id="url" value="" name="url" required="" placeholder="Insira um URL">
+                        <input type="text" name="img" required="" placeholder="Insira um URL">
                         
 
-                        <input type="submit" class="btn" value="Salvar informações">
+                        <input type="submit" class="btn" name="cadastroEvento" value="Salvar informações">
                     </form>
                 </div>
 

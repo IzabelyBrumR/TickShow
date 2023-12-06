@@ -3,11 +3,11 @@
 require_once 'ConexaoMysql.php';
 
 class eventosModel{
-    protected $id;
-    protected $nome;
-    protected $img;
-    protected $valor;
-    protected $categoria_id;
+    public $id;
+    public $nome;
+    public $img;
+    public $valor;
+    public $categoria_id;
 
     public function _construct(){
     //vazio
@@ -79,6 +79,20 @@ class eventosModel{
         $db->Desconectar();
         return $eventosList;
     }
+
+    public function cadastroEvento($nome, $quant_ing,$categoria_id,$img){
+        $db = new ConexaoMySql();
+        $db->Conectar();
+
+        $sql = "INSERT INTO eventos (nome,quant_ing,valor,categoria_id,img) values ($nome,$quant_ing,$valor,$categoria_id,$img)";
+
+        $db->Executar($sql);
+
+        header('location:../eventos.php?cod=sucess');
+
+        $db->Desconectar();
+    }
+
     public function loadWhereIn($whereIn){
         $db = new ConexaoMysql();
         

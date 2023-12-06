@@ -119,9 +119,6 @@ class usrModel {
         
             header('location: ../index.php?cod=171');
         }
-
-     
-
     }
 
 

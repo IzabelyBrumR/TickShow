@@ -3,18 +3,22 @@
 if ($_POST) {
     require_once '../model/eventosModel.php';
     $evento = new eventosModel();
-    $evento->setNome($_POST['nome']);
-    $evento->setImg($_POST['img']);
-    $evento->setValor($_POST['valor']);    
-    $evento->setCategoria_id($_POST['categoria_id']);
-    $evento->setId($_POST['id']); 
 
+    $nome= $_POST['nome'];
+    $img= $_POST['img'];
+    $valor = $_POST['valor'];
+    $quant_ing = $_POS['quant_ing'];
+    $categoria_id = '6';
+    
+    if(isset($_POST['cadastroEvento'])){
+        $evento->cadastroEvento($nome,$img,$valor,$quant_ing,$categoria_id);
+    }
     
 } else if ($_REQUEST) {
     if (isset($_REQUEST['cod']) && $_REQUEST['cod'] == 'del') {
 
         require_once '../model/eventosModel.php';
-        $usr = new eventosModel();
+        $evento = new eventosModel();
 
     }
 } else {
